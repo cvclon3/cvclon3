@@ -3,4 +3,4 @@
 - 🌱 I am currently studying at <s>a school</s> the university
 - 📫 How to contact me:
 
-  <s>Discord | N1k#5595</s>
+  Discord: ag1r#0
