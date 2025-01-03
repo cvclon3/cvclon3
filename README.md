@@ -1,6 +1,12 @@
-- 👋 Hi, I'm @cvclon3
-- 👀 I am interested in <s>programming</s> anime and programming
-- 🌱 I am currently studying at <s>a school</s> the university
-- 📫 How to contact me:
+# 👋 Hi, I'm Nikita
+🌱 Im currently a student an the university. In programming im keen on AI and Backend projects.
+In the real life as u can see i love anime.
 
-  Discord: ag1r#0
+# My stack
+Programming languages:
+- C++    💎💎
+- Python 💎💎💎
+- Go     💎💎
+
+- 📫 How to contact me:
+  Discord: ag1r
