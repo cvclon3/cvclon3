@@ -32,6 +32,3 @@ Idk why, but i love this
 
 # 📫 How to contact me:
   Discord: ag1r
-
-
-last edited 28 feb
