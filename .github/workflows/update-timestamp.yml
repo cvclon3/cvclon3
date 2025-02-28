@@ -1,0 +1,27 @@
+name: Update Last Edited Timestamp
+
+on:
+  push:
+    paths:
+      - "ABOUT_ME.md"
+
+jobs:
+  update-timestamp:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Update Last Edited Timestamp
+        run: |
+          echo "_Last edited: $(date -u "+%Y-%m-%d %H:%M:%S UTC")_" > temp.md
+          tail -n +2 ABOUT_ME.md >> temp.md
+          mv temp.md ABOUT_ME.md
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add ABOUT_ME.md
+          git commit -m "Update last edited timestamp"
+          git push
