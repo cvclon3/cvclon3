@@ -1,4 +1,4 @@
-# 👋 Hi, I'm Nikita
+_Last edited: 2025-02-28 14:49:02 UTC_
 🌱 Im currently a student at the university (applied math). In programming im focused on "AI". Sometime write smth like webapp, bots or math lib.
 In the real life as u can see i love anime. My setup is a mac and jetbra IDEs.
 
