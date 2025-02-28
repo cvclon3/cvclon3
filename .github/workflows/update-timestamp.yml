@@ -1,27 +1,36 @@
-name: Update Last Edited Timestamp
+name: Update README with Last Edited Time
 
 on:
   push:
-    paths:
-      - "README.md"
+    branches:
+      - main  # Trigger on pushes to the main branch
 
 jobs:
-  update-timestamp:
+  update-readme:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Update Last Edited Timestamp
-        run: |
-          echo "_Last edited: $(date -u "+%Y-%m-%d %H:%M:%S UTC")_" > temp.md
-          tail -n +2 README.md >> temp.md
-          mv temp.md README.md
+      - name: Get current timestamp
+        id: timestamp
+        run: echo "LAST_EDITED=$(date -u '+%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_ENV
 
-      - name: Commit and Push Changes
+      - name: Update README.md
+        run: |
+          README_FILE="README.md"
+          TIMESTAMP=$(date -u '+%Y-%m-%d %H:%M:%S UTC')
+          if grep -q "Last Edited:" "$README_FILE"; then
+            sed -i "s/Last Edited:.*/Last Edited: $TIMESTAMP/" "$README_FILE"
+          else
+            echo -e "\n\nLast Edited: $TIMESTAMP" >> "$README_FILE"
+          fi
+
+      - name: Commit changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
-          git commit -m "Update last edited timestamp"
+          git commit -m "Update README with last edited time"
           git push
